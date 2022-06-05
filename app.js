@@ -1,5 +1,6 @@
 const profileDataArgs = process.argv.slice(2, process.argv.length);
 const [name, github] = profileDataArgs;
+const fs = require('fs');
 
 const generatePage = (userName, githubName) => {
     return `
@@ -18,9 +19,11 @@ const generatePage = (userName, githubName) => {
     </html>
     `;
 }
-console.log(name, github);
-console.log(generatePage(name, github));
 
+fs.writeFile('index.html', generatePage(name. github), err => {
+    if (err) throw err;
+    console.log('Portfolio complete!')
+})
 
 
 
